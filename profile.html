@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="text-center">Update Student Profile</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.name.label(class="form-label") }}
+                        {{ form.name(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.student_id_number.label(class="form-label") }}
+                        {{ form.student_id_number(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.major.label(class="form-label") }}
+                        {{ form.major(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.graduation_year.label(class="form-label") }}
+                        {{ form.graduation_year(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.skills.label(class="form-label") }}
+                        {{ form.skills(class="form-control", rows=3) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.contact_info.label(class="form-label") }}
+                        {{ form.contact_info(class="form-control", rows=3) }}
+                    </div>
+                    <div class="d-grid">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

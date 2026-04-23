@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron text-center bg-light p-5 rounded">
+    <h1 class="display-4">Welcome to CampusConnect</h1>
+    <p class="lead">The ultimate automation system for college placements and career growth.</p>
+    <hr class="my-4">
+    <p>Empowering Students, Faculty, and Companies through seamless digital collaboration.</p>
+    <div class="mt-4">
+        {% if not current_user.is_authenticated %}
+            <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button">Get Started</a>
+            <a class="btn btn-outline-primary btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
+        {% else %}
+            <a class="btn btn-primary btn-lg" href="{{ url_for('dashboard') }}" role="button">Go to Dashboard</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h3 class="card-title">For Students</h3>
+                <p class="card-text">Create your professional profile, showcase your skills, and apply to top-tier companies visiting your campus.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h3 class="card-title">For Faculty</h3>
+                <p class="card-text">Manage placement drives, monitor student applications, and bridge the gap between academia and industry.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h3 class="card-title">For Companies</h3>
+                <p class="card-text">Post job opportunities, review student resumes, and hire the best talent directly from the campus.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
